@@ -1,23 +1,31 @@
-import logo from './logo.svg';
+import React from 'react';
 import './App.css';
 
 function App() {
+
+  // functional component
+  const displayPhrase = () => {
+    return (
+      <p className='chalkWords'>
+        I will never mutate state or props directly.
+      </p>
+    )
+  }
+
+  // render
+  const renderText = () => {
+    let elements = []
+    for (let i = 0; i < 100; i++) {
+      elements.push(
+        displayPhrase()
+      )
+    }
+    return elements
+  }
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      {renderText()}
     </div>
   );
 }
